@@ -1,0 +1,270 @@
+@import 'normalize';
+@import 'foundation';
+
+// VARIABLES
+
+$fs: 15px;
+$fsFooter: 11px;
+$lh: 24px;
+$lhFooter: 15px;
+$black: #000;
+$blue: #666699;
+$cyan: #088A85;
+$greyDark: #555555;
+$greyLight: #cccccc;
+$white: #FFF;
+
+/******************************************
+
+    CONTENTS:
+
+    1. TYPOGRAPHY
+    2. LAYOUT, GENERAL
+    3. HEADER
+    4. MAIN NAV
+    5. FOOTER
+    6. COMMUNITY APP
+
+******************************************/
+
+// 1. TYPOGRAPHY
+
+    body {
+        font-family: Arial, 'Hevetica Neue', Helvetica, sans-serif;
+        font-size: $fs;
+        line-height: $lh;
+    }
+    
+    h1 {
+        font-size: 24px;
+    }
+    
+    h2 {
+        font-size: 19px;
+    }
+    
+    h3, h4, h5 {
+        font-size: 15px;
+    }
+    
+    h1, h2, h3, h4, h5, h6, b {
+        font-weight: bold;
+    }
+    
+    i {
+        font-style: italic;    
+    }
+    
+    .btn {
+        font-size: $fs;
+        line-height: $lh;
+    }
+    
+    .delete, .delete:hover {
+        color: red;
+    }
+
+    // VERTICAL RHYTHM
+
+    h1, h2, h3, h4, h5, h6, p, ul, ol, img, .form-control, .btn, #disqus_thread {
+        line-height: $lh;
+        margin: 0 0 $lh 0;
+        padding: 0;
+    }
+    
+// 2. LAYOUT, GENERAL
+
+    body {
+        background: url(http://londonacademyofit.co.uk/Styles/images/Bottom_texture.jpg) fixed;
+        background-size: cover;
+        margin: 0;
+        padding-bottom: $lh;
+    }
+    
+    .wrapper {
+        background: $white;
+        border-radius: 3px;
+        box-shadow: 0px 3px 6px rgba($black, 0.6);
+        margin: 0 auto;
+    }
+    
+    .container {
+        max-width: 100%;
+    }
+    
+    img, iframe {
+        height: auto;
+        max-width: 100%;
+    }
+    
+    iframe {
+        margin-bottom: $lh;
+        min-height: 200px;
+    }
+    
+    ol, ul {
+        margin-left: 20px;
+    }
+    
+    .icon {
+        margin: 0;
+    }
+    
+    @media (min-width: 768px) {
+        
+        .wrapper {
+            width: 750px;
+        }
+        
+        th, td {
+            min-width: 100px;
+        }
+        
+        iframe {
+            min-height: $lh*16;
+        }
+        
+    }
+    
+    @media (min-width: 992px) {
+        
+        .wrapper {
+            width: 970px;
+        }
+        
+    }
+    
+// 3. HEADER
+
+    header {
+        background: url(http://londonacademyofit.co.uk/Styles/images/header.gif);
+        margin-bottom: $lh;
+        padding: $lh 0 0;
+        text-align: center;
+    }
+    
+    header .right-col {
+        margin-bottom: $lh;
+    }
+    
+    .logo-name {
+        left: -9999px;
+        position: absolute;
+    }
+    
+    header h2 {
+        color: $cyan;
+        font-size: $fs;
+        font-weight: bold;
+        line-height: $lh;
+    }
+    
+    header .icon {
+        margin-left: $lh;
+    }
+    
+    header .contact-info {
+        color: $blue;
+    }
+    
+    @media (min-width: 992px) {
+        
+        header {
+            text-align: left;
+        }
+        
+        header .right-col {
+            text-align: right;    
+        }
+        
+    }
+
+// 4. MAIN NAV
+
+    .main-nav {
+        background: $greyDark;
+        padding: $lh 0;
+        text-align: center;
+    }
+    
+    .main-nav ul {
+        list-style-type: none;
+        display: none;
+        margin: 0;
+    }
+    
+    .main-nav a, .main-nav a:visited {
+        color: $white;
+        cursor: pointer;
+        border-radius: 3px;
+        font-size: $fs;
+        line-height: $lh*1.5;
+        padding: 6px 12px;
+    }
+    
+    .main-nav a:hover, .main-nav a:active, .main-nav a:focus {
+        background: $white;
+        color: $black;
+        text-decoration: none;
+    }
+    
+    .toggle-menu, .toggle-menu:visited {
+        background: $white;
+        color: $black !important;
+    }
+    
+    @media (min-width: 992px) {
+        
+        .main-nav {
+            padding: 0;
+        }
+        
+        .main-nav ul {
+            display: block;
+        }
+        
+        .main-nav ul li {
+            display: inline-block;
+            margin: 0 10px;
+        }
+        
+        .toggle-menu {
+            display: none;
+        }
+        
+    }
+    
+// 5. FOOTER
+
+    footer {
+        background: url(http://londonacademyofit.co.uk/Styles/images/footer.png);
+        padding-top: $lh;
+        text-align: center;
+    }
+    
+    footer h6, footer a, footer ul, footer p, footer address {
+        font-size: $fsFooter;
+        line-height: $lhFooter;
+        margin: 0 0 $lhFooter/2 0;
+    }
+    
+    footer ul {
+        line-height: $lhFooter;
+        list-style-type: none;
+    }
+    
+    footer a, footer a:visited {
+        color: $greyDark;
+    }
+    
+    @media (min-width: 768px) {
+        
+        footer {
+        
+            text-align: left;
+        }
+        
+    }
+    
+// 6. COMMUNITY APP
+
