@@ -2,6 +2,7 @@ console.log('--- executing app.js');
 
 var app = angular.module('LAIT-Community', [
 
+    'ngMaterial',
     'firebase'
 
 ]);
@@ -73,12 +74,46 @@ app.factory('UsersService', function(FIREBASE_URI, $firebaseObject) {
     
 });
 
-app.controller('MainCtrl', function(AuthWatch, $scope, UsersService) {
+app.controller('MainCtrl', function(AuthWatch, $scope, UsersService, $mdDialog) {
     
     // the UsersService.getUsers() method will give us an array of users ?
-    var usersArray = UsersService.getUsers();
+    //var usersArray = UsersService.getUsers();
     
     // we can bind this array of users to the $scope, to show it in the DOM
-    usersArray.$bindTo($scope, 'users');
+    //usersArray.$bindTo($scope, 'users');
+    
+    $scope.msg = 'hello';
+    
+    // initially, we should assume there is no logged-in user
+    $scope.user = false;
+    
+    // this function shows the login dialog box
+    $scope.showLoginDialog = function(event) {
+        
+        $mdDialog.show({
+          controller: DialogController,
+          templateUrl: 'templates/logindialog.tmpl.html',
+          targetEvent: event,
+        })
+        .then(function() { // this is called if the 'OK' button is clicked
+          console.log('The OK button was clicked');
+        }, function() { // this is called if the 'Cancel' button is clicked
+          console.log('The cancel button was clicked');
+        });
+        
+    };
 
 });
+
+// This controller contains the basic functions that a dialog needs
+function DialogController($scope, $mdDialog) {
+    
+  $scope.hide = function() { // this is run if the 'OK' button is clicked
+    $mdDialog.hide();
+  };
+  
+  $scope.cancel = function() { // this is run if the 'Cancel' button is clicked
+    $mdDialog.cancel();
+  };
+  
+}

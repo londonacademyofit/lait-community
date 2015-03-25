@@ -1,6 +1,3 @@
-@import 'normalize';
-@import 'foundation';
-
 // VARIABLES
 
 $fs: 15px;
@@ -66,7 +63,7 @@ $white: #FFF;
 
     // VERTICAL RHYTHM
 
-    h1, h2, h3, h4, h5, h6, p, ul, ol, img, .form-control, .btn, #disqus_thread {
+    h1, h2, h3, h4, h5, h6, p, ul, ol, img, button, #disqus_thread {
         line-height: $lh;
         margin: 0 0 $lh 0;
         padding: 0;
@@ -77,6 +74,7 @@ $white: #FFF;
     body {
         background: url(http://londonacademyofit.co.uk/Styles/images/Bottom_texture.jpg) fixed;
         background-size: cover;
+        height: auto;
         margin: 0;
         padding-bottom: $lh;
     }
@@ -200,6 +198,7 @@ $white: #FFF;
         font-size: $fs;
         line-height: $lh*1.5;
         padding: 6px 12px;
+        text-decoration: none;
     }
     
     .main-nav a:hover, .main-nav a:active, .main-nav a:focus {
@@ -268,3 +267,15 @@ $white: #FFF;
     
 // 6. COMMUNITY APP
 
+.md-button {
+    margin: 0 0 $lh 0;
+}
+
+md-dialog {
+    max-height: 100%;
+    min-width: 30%;
+}
+
+md-input-container {
+    min-height: $lh*4;    
+}

@@ -1,1 +1,2 @@
-# The London Academy of IT Online Community & Discussion Space
+# The London Academy of IT
+## Online Community & Discussion Space

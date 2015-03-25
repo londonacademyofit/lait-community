@@ -71,33 +71,16 @@
                     
                     <h1>Join the LAIT Community</h1>
                     
-                    <p>Testing Angular: 1 + 1 = {{ 1 + 1 }}</p>
+                    <p>Login here</p>
                     
-                    <div ng-controller="MainCtrl">
-                    
-                        <p>{{ msg }}</p>
-                    
-                        <md-content>
-                    
-                            <h2>Login/Signup</h2>
-                            
-                            <md-button class="md-primary" ng-if="!user" ng-click="showLoginDialog($event)">
-                              Login or Signup
-                            </md-button>
-                            
-                            <md-button class="md-primary" ng-if="user" ng-click="logout()">
-                              Logout
-                            </md-button>
-                        
-                            <h2>Users</h2>
-                            
-                            <ul>
-                                <li ng-repeat="user in users">{{ user.name }}</li>
-                            </ul>
-                        
-                        </md-content>
-                    
-                    </div>
+                    <md-input-container>
+                      <label>Email</label>
+                      <input ng-model="user.email" type="email">
+                    </md-input-container>
+                    <md-input-container>
+                      <label>Password</label>
+                      <input ng-model="user.password" type="password">
+                    </md-input-container>
                     
                 </div>
             </div>
