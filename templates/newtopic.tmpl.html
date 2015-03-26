@@ -1,0 +1,54 @@
+<md-dialog aria-label="Create New Topic" id="new-topic-dialog">
+  <form name="createNewTopic">
+    <md-content class="sticky-container">
+      <div class="dialog-content">
+          <h3>Create a new topic and post it to the community.</h3>
+          
+          <div ng-show="user">
+          
+            <p>You are logged in as {{ user.name }}.</p>
+          
+            <md-input-container>
+              <label>Topic title:</label>
+              <input ng-model="newTopic.title" name="title" type="text" md-maxlength="80" required>
+              <div ng-messages="createNewTopic.title.$error">
+                <div ng-message="md-maxlength">The title must be less than 80 characters long.</div>
+              </div>
+            </md-input-container>
+            
+            <md-input-container>
+              <label>Topic content:</label>
+              <textarea ng-model="newTopic.content" name="content" columns="1" required></textarea>
+            </md-input-container>
+          </div>
+          
+          <div ng-show="!user">
+            <p>You must login before you can post a new topic.</p>
+            
+            <p>[Login form here]</p>
+          </div>
+          
+          <div layout="row" layout-align="end center">
+            <md-progress-circular ng-if="waiting" md-mode="indeterminate"></md-progress-circular>
+          </div>
+          
+          <md-toolbar class="md-warn" ng-if="errorMsg">
+            <div class="md-toolbar-tools">
+              <span class="md-flex">{{ errorMsg }}</span>
+            </div>
+          </md-toolbar>
+      </div>
+    </md-content>
+    <div class="md-actions" layout="row">
+      <span flex></span>
+      <md-button ng-show="!waiting" ng-click="cancel()">
+       Cancel
+      </md-button>
+      <md-button ng-show="!waiting" ng-click="createTopic()" class="md-primary">
+        Create Topic
+      </md-button>
+    </div>
+  </form>
+</md-dialog>
+                            
+            

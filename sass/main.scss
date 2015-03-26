@@ -64,7 +64,7 @@ $white: #FFF;
     // VERTICAL RHYTHM
 
     h1, h2, h3, h4, h5, h6, p, ul, ol, img, button, #disqus_thread {
-        line-height: $lh;
+        line-height: $lh !important;
         margin: 0 0 $lh 0;
         padding: 0;
     }
@@ -165,7 +165,7 @@ $white: #FFF;
         color: $blue;
     }
     
-    @media (min-width: 992px) {
+    @media (min-width: 599px) {
         
         header {
             text-align: left;
@@ -256,7 +256,7 @@ $white: #FFF;
         color: $greyDark;
     }
     
-    @media (min-width: 768px) {
+    @media (min-width: 599px) {
         
         footer {
         
@@ -267,15 +267,50 @@ $white: #FFF;
     
 // 6. COMMUNITY APP
 
+.face {
+    border-radius: 100%;    
+}
+
+.md-tile-content h3 {
+    font-size: $fs + 2;
+    font-weight: bold;
+    margin: 0;
+}
+
+.md-tile-content p {
+    font-size: $fs;    
+}
+
 .md-button {
     margin: 0 0 $lh 0;
+    padding: 6px 18px;
+}
+
+md-dialog .md-actions>* {
+    margin-bottom: 0;    
 }
 
 md-dialog {
     max-height: 100%;
     min-width: 30%;
+    width: 92%;   
+}
+
+md-dialog md-toolbar {
+    font-size: $fs; 
 }
 
 md-input-container {
+    margin-bottom: $lh;
     min-height: $lh*4;    
+}
+
+md-checkbox {
+    margin: 0 0 $lh 0;    
+}
+
+@media (min-width: 909px) {
+    md-dialog {
+        width: 50%;
+    }
 }

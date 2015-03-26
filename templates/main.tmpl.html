@@ -1,0 +1,34 @@
+<div layout="row" layout-align="space-between center">
+    <h2>Discussion Topics</h2>
+
+    <md-button class="md-raised md-primary" ng-click="showNewTopicDialog($event)">
+        Create New Topic
+    </md-button>
+</div>
+
+<md-select placeholder="Sort topics by..." ng-model="sortOrder">
+    <md-option value="'-date'">Date (most recent first)</md-option>
+    <md-option value="'date'">Date (oldest first)</md-option>
+    <md-option value="'title'">Title</md-option>
+</md-select>
+
+<md-list>
+    <md-item ng-repeat="topic in topics | orderBy:sortOrder">
+        <md-item-content>
+          <div class="md-tile-left">
+              <img ng-src="{{ topic.author.photo }}" class="face" alt="{{ topic.author.name }}">
+          </div>
+          <div class="md-tile-content">
+            <div layout="row" layout-align="space-between center">
+                <h3>{{ topic.title }}</h3>
+                <md-button class="md-warn" ng-if="user.admin > 0" ng-click="removeTopic(topic.$id)">
+                    Remove Topic
+                </md-button>
+            </div>
+            <p>{{ topic.content | limitTo:1000 }} ... 
+            <br><a href="">Read more & respond &raquo;</a></p>
+            <p>Posted by: <b>{{ topic.author.name }}</b></p>
+          </div>
+        </md-item-content>
+    </md-item>
+</md-list>

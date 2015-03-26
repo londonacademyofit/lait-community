@@ -1,28 +1,59 @@
-<md-dialog aria-label="Login or Signup">
-  <md-content class="sticky-container">
-    <div class="dialog-content">
-        <p>Login here</p>
-        <md-input-container>
-          <label>Email</label>
-          <input ng-model="user.email" type="email">
-        </md-input-container>
-        <md-input-container>
-          <label>Password</label>
-          <input ng-model="user.password" type="password">
-        </md-input-container>
-        
-        <p>[if email address not recognised above, offer signup option here]</p>
+<md-dialog aria-label="Login or Signup" id="login-dialog">
+  <form name="loginForm">
+    <md-content class="sticky-container">
+      <div class="dialog-content">
+          <p>Enter your email address and password to login.</p>
+          
+          <md-input-container>
+            <label>Email</label>
+            <input ng-model="email" type="email" required>
+            <div ng-messages="loginForm.description.$error">
+              <div ng-message="required">This is required.</div>
+            </div>
+          </md-input-container>
+          
+          <md-input-container>
+            <label>Password</label>
+            <input ng-model="password" type="password" required>
+            <div ng-messages="loginForm.description.$error">
+              <div ng-message="required">This is required.</div>
+            </div>
+          </md-input-container>
+          
+          <p>If you haven't created an account yet, check this box to do so now:</p>
+          <md-checkbox ng-model="yesNewAccount" aria-label="Create new account">
+            I need to create a new account
+          </md-checkbox>
+          
+          <md-input-container ng-show="yesNewAccount">
+            <label>Your name:</label>
+            <input ng-model="name" type="text">
+          </md-input-container>
+          
+          <div layout="row" layout-align="end center">
+            <md-progress-circular ng-if="waiting" md-mode="indeterminate"></md-progress-circular>
+          </div>
+          
+          <md-toolbar class="md-warn" ng-if="errorMsg">
+            <div class="md-toolbar-tools">
+              <span class="md-flex">{{ errorMsg }}</span>
+            </div>
+          </md-toolbar>
+      </div>
+    </md-content>
+    <div class="md-actions" layout="row">
+      <span flex></span>
+      <md-button ng-show="!waiting" ng-click="cancel()">
+       Cancel
+      </md-button>
+      <md-button ng-show="!yesNewAccount && !waiting" ng-click="login()" class="md-primary">
+        Login
+      </md-button>
+      <md-button ng-show="yesNewAccount && !waiting" ng-click="signup()" class="md-primary">
+        Sign Up
+      </md-button>
     </div>
-  </md-content>
-  <div class="md-actions" layout="row">
-    <span flex></span>
-    <md-button ng-click="cancel()">
-     Cancel
-    </md-button>
-    <md-button ng-click="hide()" class="md-primary">
-      OK
-    </md-button>
-  </div>
+  </form>
 </md-dialog>
                             
             
